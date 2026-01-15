@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
+import os
 
 app = FastAPI()
 
@@ -11,6 +12,10 @@ async def root():
 @app.get("/test")
 async def test():
     return {"message": "It works well!"}
+
+@app.get("/get_key")
+async def get_key():
+    return {"message": os.getenv("test_key")}
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
