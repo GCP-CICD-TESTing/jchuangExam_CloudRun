@@ -11,7 +11,7 @@ async def root():
 
 @app.get("/test")
 async def test():
-    return {"message": "It works well!"}
+    return {"message": "It works good!"}
 
 @app.get("/get_key")
 async def get_key():
