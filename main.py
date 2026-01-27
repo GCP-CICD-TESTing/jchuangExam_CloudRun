@@ -17,5 +17,9 @@ async def test():
 async def get_key():
     return {"message": os.getenv("test_key1")}
 
+@app.get("/get_key2")
+async def get_key():
+    return {"message": os.getenv("test_key2")}
+
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
