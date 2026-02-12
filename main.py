@@ -30,9 +30,8 @@ async def move_file():
         new_name = 'testcopy_permission/2025-09-03_pedia_1of1.zip'
         new_blob = src_bucket.copy_blob(blob, dst_bucket, new_name)
         return {"message": f"Copy {blob.name} to {new_name} Complete !" }
-    except:
-        return {"message": f"Failed !" }
-
+    except Exception as e:
+        print("message": f"Failed to trigger job: {e}")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
