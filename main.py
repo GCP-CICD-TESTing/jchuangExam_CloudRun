@@ -26,7 +26,7 @@ async def move_file():
     src_bucket = storage_client.bucket(src_bucket_name)
     dst_bucket = storage_client.bucket(dst_bucket_name)
     try:
-        blob = src_bucket.blob('jchuang_no_hierarchical/edulrs/_nonprocess/2025-09-03_pedia_1of1.zip')
+        blob = src_bucket.blob('edulrs/_nonprocess/2025-09-03_pedia_1of1.zip')
         new_name = 'testcopy_permission/2025-09-03_pedia_1of1.zip'
         new_blob = src_bucket.copy_blob(blob, dst_bucket, new_name)
         return {"message": f"Copy {blob.name} to {new_name} Complete !" }
