@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import uvicorn
 import os
+from google.cloud import storage
 
 app = FastAPI()
 
@@ -17,9 +18,21 @@ async def test():
 async def get_key():
     return {"message": os.getenv("test_key1")}
 
-@app.get("/get_key2")
-async def get_key():
-    return {"message": os.getenv("test_key2")}
+@app.get("/move_file")
+async def move_file():
+    src_bucket_name='jchuang_no_hierarchical'
+    dst_bucket_name='jchuang_dst_bucket'
+    storage_client = storage.Client()
+    src_bucket = storage_client.bucket(src_bucket_name)
+    dst_bucket = storage_client.bucket(dst_bucket_name)
+    try:
+        blob = bucket.blob('jchuang_no_hierarchical/edulrs/_nonprocess/2025-09-03_pedia_1of1.zip')
+        new_name = 'testcopy_permission/2025-09-03_pedia_1of1.zip'
+        new_blob = src_bucket.copy_blob(blob, dst_bucket, new_name)
+        return {"message": f"Copy {blob.name} to {new_name} Complete !" }
+    except:
+        return {"message": f"Failed !" }
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
