@@ -1,0 +1,20 @@
+name: "Strict Merge Policy: val -> prod"
+
+on:
+  pull_request:
+    branches:
+      - prod  # 目標是prod時觸發
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          # github.head_ref 是 PR 的来源分支
+          echo "Source branch is: ${{ github.head_ref }}"
+          
+          if [ "${{ github.head_ref }}" != "val" ]; then
+            echo "本專案限制只能從 'val' 分支合併到 'prod'。"
+            exit 1
+          fi
