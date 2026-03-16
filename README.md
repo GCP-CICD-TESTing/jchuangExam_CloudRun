@@ -9,13 +9,14 @@ This project is aims to exam the CI/CD process of cloud run.
 ### 提交貢獻
 
 1. **Fork 或 Clone 專案**：
-   - 由於 `val` 是預設分支，你 Clone 下來的代碼將會直接處於開發環境。
+   - 請直接下載 `val`分支
      ```bash
      git clone -b val --single-branch https://github.com/GCP-CICD-TESTing/jchuangExam_CloudRun.git
      ```
 2. **建立功能分支**：
    - 請從 `val` 分支切出新分支進行開發：
      ```bash
+     cd jchuangExam_CloudRun
      git checkout -b feature/your-feature-name
      ```
 3. **提交修改並推送**：
