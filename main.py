@@ -18,10 +18,6 @@ async def test():
 async def get_key():
     return {"message": os.getenv("test_key1")}
 
-@app.get("/get_key_2")
-async def get_key():
-    return {"message": os.getenv("test_key2")}
-
 @app.get("/move_file")
 async def move_file():
     src_bucket_name='jchuang_no_hierarchical'
