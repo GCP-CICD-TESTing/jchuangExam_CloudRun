@@ -29,6 +29,5 @@ This project is aims to exam the CI/CD process of cloud run.
    - 經過審核與測試通過後，你的代碼將會合併進 `val`。
 
 ### 注意事項
-- 請勿直接push程式碼到`val` OR `prod`
 - 請勿直接向 `prod` 分支發起 PR，否則系統會自動攔截或拒絕。
 - 所有的代碼在進入 `prod` 之前，都必須先在 `val` 分支中運行正常。
