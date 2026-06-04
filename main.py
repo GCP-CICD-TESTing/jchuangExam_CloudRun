@@ -12,7 +12,7 @@ async def root():
 
 @app.get("/test")
 async def test():
-    return {"message": "It works good! version = 20260604"}
+    return {"message": "It works good! version = 20260604_0304"}
 
 @app.get("/get_key")
 async def get_key():
