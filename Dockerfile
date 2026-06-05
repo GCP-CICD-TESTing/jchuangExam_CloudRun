@@ -1,6 +1,7 @@
 # Dockerfile
 FROM docker.io/library/python:3.12.2-slim
 
+
 # Set the Current Working Directory inside the container
 WORKDIR /app
 RUN mkdir /env
